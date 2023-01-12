@@ -14,9 +14,10 @@ const hangedMan = () => {
             wordArray.forEach((value, index) => {
                 if (value == char)
                     answerArray[index] = char;
+                console.log(wordArray == answerArray);
             });
             console.log(wordArray + " , " + answerArray);
-            if (wordArray === answerArray) {
+            if (wordArray == answerArray) {
                 alert("you won");
                 hangedMan();
             }

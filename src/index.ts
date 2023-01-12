@@ -1,26 +1,24 @@
 const hangedMan = (): void => {
-    
-    const word: string =  String(window.prompt("Enter a word: "));
+
+    const word: string =  String(prompt("Enter a word: "));
     const wordArray: string[] = word.split("");
     let answerArray: string[] = word.split("");
-    
+
     answerArray.forEach((value,index) => {
         if(value != " ") answerArray[index] = "*";
     });
 
-    
+
     let fails: number = 0; 
-   
+
     while(fails < 5){
-        const char: string = String(window.prompt("Enter char:     "+answerArray));
+        const char: string = String(prompt("Enter char:     "+answerArray));
         if(word.includes(char)){
             wordArray.forEach((value,index) => {
                 if(value==char) answerArray[index] = char;
             });
-            console.log(wordArray+" , "+answerArray);
-            if(wordArray === answerArray){
+            if(wordArray.join('') == answerArray.join('')){
                 alert("you won");
-                hangedMan();
             }
         }
         else{
@@ -29,7 +27,6 @@ const hangedMan = (): void => {
         }
     }
     alert("you lost");
-    hangedMan();
 }
 
 hangedMan();
